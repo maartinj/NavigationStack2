@@ -10,11 +10,14 @@
 
 import Foundation
 
-struct Country {
+struct Country: Identifiable, Hashable {
     var name: String
     var flag: String
     var population: Int
     var cities: [City]
+    var id: String {
+        name
+    }
 
     static var sample: [Country] {
         [
@@ -28,11 +31,14 @@ struct Country {
 }
 
 
-struct City {
+struct City: Identifiable, Hashable {
     var name: String
     var country: String
     var isCapital: Bool
     var population: Int
+    var id: String {
+        name
+    }
     
     static var all: [City] {
         [
